@@ -10,6 +10,8 @@
    <% if user_signed_in? %>
   <%= link_to "home", root_path, :class => 'navbar-link'  %>
  <span class="glyphicon glyphicon-home"> </span>
+ <span class="glyphicon glyphicon-search"><%= link_to "list", wikis_path, :class => 'navbar-link' %></span>
+ 
  
  <div class=" inOrOut pull-right">
 
