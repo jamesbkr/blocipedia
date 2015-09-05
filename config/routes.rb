@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :welcome
+ 
+  resources :welcome, :wikis
 
   devise_for :users
   
