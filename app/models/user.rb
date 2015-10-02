@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   
   
   def init
-      self.role = 1
+      self.role = :member
   end
 
 end

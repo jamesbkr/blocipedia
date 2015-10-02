@@ -9,5 +9,7 @@
           <div class="row">
             <%= link_to "Create New Wiki",  new_wiki_path,  class: "btn btn-success" %>
           </div>
-
+          
     </div>
+            <div class="text-center"> Your wikis</div>
+            <%= render @user.wikis %>
