@@ -48,7 +48,7 @@ Rails.application.configure do
   # when problems arise.
   config.log_level = :debug
   
-  config.action_mailer.default_url_options = { :host => '???????????' }
+  config.action_mailer.default_url_options = { :host => 'blocipedia-jb.herokuapp.com' }
     ActionMailer::Base.smtp_settings = {
      :address        => "smtp.sendgrid.net",
      :port           => "25",
