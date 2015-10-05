@@ -47,6 +47,16 @@ Rails.application.configure do
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   config.log_level = :debug
+  
+  config.action_mailer.default_url_options = { :host => '???????????' }
+    ActionMailer::Base.smtp_settings = {
+     :address        => "smtp.sendgrid.net",
+     :port           => "25",
+     :authentication => :plain,
+     :user_name      => ENV['SENDGRID_USERNAME'],
+     :password       => ENV['SENDGRID_PASSWORD'],
+     :domain         => ENV['SENDGRID_DOMAIN']
+    }
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
