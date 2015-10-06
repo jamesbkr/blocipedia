@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  
   resources :welcome, :wikis
-
+  resources :charges, only: [:new, :create, :show]
   devise_for :users
   
   root to: 'welcome#index'
