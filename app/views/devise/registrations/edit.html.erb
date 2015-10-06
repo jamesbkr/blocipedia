@@ -31,7 +31,12 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
-
+  <% if current_user.premium? %>
+  <div class="field">
+    <%= f.label :role %> <i>(If you would like to downgrade your account back to member please type member.)</i><br />
+    <%= f.text_field :role, autocomplete: "off" %>
+  </div>
+  <% end %>
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

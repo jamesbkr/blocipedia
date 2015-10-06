@@ -12,6 +12,7 @@
           </div>
           
     </div>
+    <% if current_user.premium? %>
         <div class="col-md-6">
             <div class="text-center"> Your Public Wikis</div>
             <% @user.wikis.each do |wiki| %>
@@ -28,3 +29,11 @@
             <% end %>  
             <% end %>
         </div>     
+        <% end %>
+            <div class="text-center"> Your Public Wikis</div>
+            <% @user.wikis.each do |wiki| %>
+            <% if !wiki.private? %>
+              <%= render ({ partial: 'wikis/wiki', locals: {wiki: wiki}}) %>
+            <% end %>  
+            <% end %>
+    
