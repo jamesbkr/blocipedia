@@ -4,7 +4,7 @@ class ChargesController < ApplicationController
    @stripe_btn_data = {
      key: "#{ Rails.configuration.stripe[:publishable_key] }",
      description: "BigMoney Membership - #{current_user.name}",
-     amount: 15
+     amount: 1500
    }
  end
 
@@ -18,7 +18,7 @@ class ChargesController < ApplicationController
  
    charge = Stripe::Charge.create(
      customer: customer.id, 
-     amount: 15,
+     amount: 1500,
      description: "BigMoney Membership - #{current_user.email}",
      currency: 'usd'
    )
