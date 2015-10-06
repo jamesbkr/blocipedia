@@ -30,10 +30,12 @@
             <% end %>
         </div>     
         <% end %>
+        
+        <% if !current_user.premium? %>
             <div class="text-center"> Your Public Wikis</div>
             <% @user.wikis.each do |wiki| %>
             <% if !wiki.private? %>
               <%= render ({ partial: 'wikis/wiki', locals: {wiki: wiki}}) %>
             <% end %>  
             <% end %>
-    
+    <% end %>
