@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
     @user = current_user
     if current_user.member?
         current_user.wikis.each do |f|
-          f.private = false
+          f.update_attribute(:private, false)
         end
     end    
   end
