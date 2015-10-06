@@ -3,8 +3,8 @@
 
     <div class="jumbotron text-center">
           <div class="row">
-            <%= current_user.name %> welcome to your wiki page!!!!    <% if current_user.member? %>|||||     you are currently a <%= current_user.role %> to upgrade to premuim click  <%= link_to "HERE", new_charge_path %><% end %>
-          
+            <%= current_user.name %> welcome to your wiki page!!!!               <% if @user.member? %> <%= link_to "UPGRADE TO PREMIUM!!!", new_charge_path %> <% end %>
+            <%= @user.role %>
           </div>
     
           <div class="row">
