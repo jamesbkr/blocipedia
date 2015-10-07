@@ -40,6 +40,7 @@ gem 'stripe'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
+gem 'redcarpet'
 gem 'bootstrap-sass'
 gem 'faker'
 gem 'simple_form' , '~>3.1.0.rc1'
