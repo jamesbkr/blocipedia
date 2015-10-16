@@ -1,4 +1,9 @@
 class RegistrationsController < Devise::RegistrationsController
+  
+  def update
+    super
+    current_user.down_grade
+  end
 
   private
 

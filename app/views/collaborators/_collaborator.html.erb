@@ -1,0 +1,10 @@
+<%= form_for [collaborator.wiki, collaborator], url: wiki_collaborator_path(collaborator.wiki, collaborator), method: :delete do |f| %>
+    
+   <div class="collab">
+    <div class="email"><%= collaborator.user.email %></div>
+  
+  <% if current_user == collaborator.wiki.user %>
+   <%= f.submit "Remove" %>
+   <% end %>
+    </div>
+<% end %>

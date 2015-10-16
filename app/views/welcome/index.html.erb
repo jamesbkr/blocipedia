@@ -12,30 +12,49 @@
           </div>
           
     </div>
-    <% if current_user.premium? %>
-        <div class="col-md-6">
-            <div class="text-center"> Your Public Wikis</div>
-            <% @user.wikis.each do |wiki| %>
+    <% if current_user.premium? || current_user.admin? %>
+        <div class="col-md-4">
+            <div class="text-center"><h3>Your Public Wikis</h3></div>
+            <% @wikis.where(user: current_user).each do |wiki| %>
             <% if !wiki.private? %>
               <%= render ({ partial: 'wikis/wiki', locals: {wiki: wiki}}) %>
             <% end %>  
             <% end %>
         </div>    
-         <div class="col-md-6">
-            <div class="text-center"> Your Private Wikis</div>
-            <% @user.wikis.each do |wiki| %>
+         <div class="col-md-4">
+            <div class="text-center"><h3>Your Private Wikis</h3></div>
+            <% @wikis.where(user: current_user).each do |wiki| %>
             <% if wiki.private? %>
               <%= render ({ partial: 'wikis/wiki', locals: {wiki: wiki}}) %>
             <% end %>  
             <% end %>
-        </div>     
+        </div> 
+             <div class="col-md-4">
+            <div class="text-center"><h3>Your Collaborations</h3></div>
+            <% @collaborations.each do |wiki| %>
+           
+              <%= render ({ partial: 'wikis/wiki', locals: {wiki: wiki.wiki}}) %>
+              
+            <% end %>
+        </div> 
         <% end %>
         
-        <% if !current_user.premium? %>
-            <div class="text-center"> Your Public Wikis</div>
-            <% @user.wikis.each do |wiki| %>
+        <% if current_user.member? %>
+         <div class="col-md-6">
+            <div class="text-center"><h3>Your Public Wikis</h3></div>
+            <% @wikis.where(user: current_user).each do |wiki| %>
             <% if !wiki.private? %>
               <%= render ({ partial: 'wikis/wiki', locals: {wiki: wiki}}) %>
             <% end %>  
+            
             <% end %>
+            </div>
+             <div class="col-md-4">
+              <div class="text-center"><h3>Your Collaborations</h3></div>
+            <% current_user.wikis.each do |wiki| %>
+           
+              <%= render ({ partial: 'wikis/wiki', locals: {wiki: wiki}}) %>
+              
+            <% end %>
+            </div>
     <% end %>

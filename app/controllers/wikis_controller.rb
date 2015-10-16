@@ -5,13 +5,14 @@ class WikisController < ApplicationController
  
   
   def index
-    @wikis = Wiki.all
+   @wikis = policy_scope(Wiki) 
 
   end
   
   
   def show
     @wiki = Wiki.find(params[:id])
+
     authorize @wiki
   end
 
@@ -28,7 +29,8 @@ class WikisController < ApplicationController
      @wiki.title = params[:wiki][:title]
      @wiki.body = params[:wiki][:body]
      @wiki.user = current_user
-     if current_user.premium?
+     
+     if current_user.premium? || current_user.admin?
       @wiki.private = params[:wiki][:private]
      else
          @wiki.private = false
@@ -47,14 +49,16 @@ class WikisController < ApplicationController
   
   def edit
     @wiki = Wiki.find(params[:id])
+    @collborator = Collaborator.new
   end
   def update 
     
     @wiki = Wiki.find(params[:id])
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
-    @wiki.private = false
-     if @wiki.save
+    
+     if @wiki.save  
+      
        flash[:notice] = "Post was saved."
        redirect_to wikis_path
      else

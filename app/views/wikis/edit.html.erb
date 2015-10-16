@@ -1,7 +1,13 @@
 <h1>what changes are you making?</h1>
 
 <%= simple_form_for @wiki do |f| %>
-<%= f.input :title %>
-<%= f.input :body %>
-<%= f.button :submit %>
+    <%= f.input :title %>
+    <%= f.input :body %>
+    <%= f.button :submit %>
+<% end %>
+
+<% if @wiki.private && @wiki.user == current_user %>
+<h2>Collaborators</h2>
+ <%= render partial: "collaborators/form", locals: {wiki: @wiki, collaborator: @collaborator} %>
+ <%= render partial: "collaborators/collaborator", collection: @wiki.collaborators %>
 <% end %>

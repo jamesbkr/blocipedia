@@ -1,10 +1,10 @@
 class WelcomeController < ApplicationController
   def index
     @user = current_user
+    @wikis = Wiki.all
+    @collaborations = Collaborator.where(user_id: current_user.id)
     if current_user.member?
-        current_user.wikis.each do |f|
-          f.update_attribute(:private, false)
-        end
+
     end    
   end
 

@@ -1,0 +1,5 @@
+<%= form_for [wiki, Collaborator.new], url: wiki_collaborators_path(wiki, Collaborator.new), action: :create do |f| %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+    <%= f.submit "Add Collaborator" %>
+<% end %>

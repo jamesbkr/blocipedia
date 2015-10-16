@@ -1,6 +1,20 @@
+<body>
+<div id="showBody">
 
 <h1> <%= @wiki.title %> </h1>
- <p><%= markdown(@wiki.body) %></p>
-<%= link_to "Update", edit_wiki_path, class: "btn btn-success" %>
-<%= link_to "DELETE", @wiki, method: :delete, class: "btn btn-danger", data: { confirm: "are you sure you want to delete this?"} %>
 
+
+
+<p><%= markdown(@wiki.body) %></p>
+
+<%= link_to "Update", edit_wiki_path, class: "btn btn-success" %>
+
+
+<% if @wiki.user == current_user  || current_user.admin? %>
+<%= link_to "DELETE", @wiki, method: :delete, class: "btn btn-danger", data: { confirm: "are you sure you want to delete this?"} %>
+<% end %>
+
+</div>
+
+
+</body>

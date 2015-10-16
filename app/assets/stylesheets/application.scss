@@ -15,3 +15,66 @@
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+
+.signHeader{
+    border-radius: 6px;
+    margin: 5px 5px 5px 5px;
+    padding: 10px;
+    background-color: #COCOCO;    
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000;
+    
+}
+
+.header{
+    text-align: center;
+    font-family: Comic sans MS;
+}
+
+.fieldWrap{
+    
+    margin: 10px;
+    padding: 10px;
+    
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+    
+}
+
+.collaborators{
+    margin: 5px;
+    border: 5px;
+    padding: 5px;
+    background-color: random;
+}
+.collab{
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    border-width: 1px;
+    border-style: dotted;
+    border-radius: 6px;
+    
+}
+
+.email{
+    font-family: Comic sans MS;
+    
+}
+
+#showBody{
+    margin: auto;
+    
+    width: 70%;
+    border-width: 5px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    padding: 10px;
+    text-align: center;
+    font-family: Comic sans MS;
+    
+}
